@@ -1,0 +1,50 @@
+/**
+ * Toutes les classes pouvant être utilisé à plusieurs endroits. 
+ */
+
+.btn {
+    cursor: pointer;
+    background: url(../img/btnStatic.png) no-repeat;
+    width: 150px;
+    height: 37.5px;
+    background-size: 100% 100%;
+    border: none;
+    outline: none;
+    margin-top: 3%;
+    margin-left: 22%;
+}
+
+.btn:hover {
+	margin-top: 3%;
+	width: 150px;
+    height: 37.5px;
+    background-size: 100% 100%;
+	background: url(../img/btnHover.png) no-repeat;
+	background-position: 0px -10px;
+}
+
+.textBox {
+	text-align: center;
+	font-size: 1em;
+	padding: 10px 10px 5px 0px;
+
+	margin-top: 3%;
+	width: 300px;
+
+	border: 1px solid #CCC;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+	-webkit-box-shadow: 0 1px 1px #CCC inset, 0 1px 0 #FFF;
+	box-shadow: 0 1px 1px #CCC inset, 0 1px 0 #FFF;
+}
+
+.textBox:focus {
+	background-color: #FFF;
+	border-color: #E8C291;
+	outline: none;
+	-moz-box-shadow: 0 0 0 1px #e8c291 inset;
+	-webkit-box-shadow: 0 0 0 1px #E8C291 inset;
+	box-shadow: 0 0 0 1px #E8C291 inset;
+}
