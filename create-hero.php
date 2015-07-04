@@ -20,6 +20,20 @@
             
             if(!isset($_SESSION['pseudo']))
             {
+                
+                $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn)); 
+                
+                $pseudo = $_SESSION['pseudo'];
+                
+                $SQL    = "SELECT pseudo FROM rpg_hero WHERE pseudo='$pseudo'" or die("Error in the consult.." . mysqli_error($conn));
+                $result = mysqli_query($conn, $SQL); 
+                $row    = mysqli_fetch_array($result);
+                
+                if($row > 0){
+                    ?>
+                    <SCRIPT LANGUAGE="JavaScript"> document.location.href="index.php?error=1";</SCRIPT> 
+                    <?php
+                }
             ?>
                 <div>
 
