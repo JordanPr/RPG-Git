@@ -23,7 +23,7 @@
                     <input type="text" name="pseudo" placeholder="Pseudo" class="textBox" id="textBoxLogin">
                     <input type="password" name="mdp" placeholder="Mot de passe" class="textBox" id="textBoxPassword">
                     <input type="password" name="mdpverif" placeholder="Confirmer le mot de passe" class="textBox" id="textBoxPassword">
-                    <input type="text" name="email" placeholder="exemple@gmail.com" class="textBox" id="textBoxMail">
+                    <input type="email" name="email" placeholder="exemple@gmail.com" class="textBox" id="textBoxMail">
                     <input type="submit" value="Inscription" class="btn">
                     <div id="description"></div>
                 </div>

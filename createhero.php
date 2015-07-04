@@ -16,7 +16,7 @@
         $sexe       = intval($_POST['sexe']);
         
         //vérification si le nombre de point correspond
-        if($point > 10 ){
+        if($point != 10 ){
             header('Location: create-hero.php?error=1');
             exit;
         }
