@@ -1,6 +1,6 @@
 <?php
 	$DB_login = "root"; 
-	$DB_pass = "root";
+	$DB_pass = "";
 	$DB_host = "localhost";
-        $DB_name = 'rpg';
+    $DB_name = 'rpg';
 ?>

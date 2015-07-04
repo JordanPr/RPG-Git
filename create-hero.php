@@ -1,6 +1,8 @@
 <html>
     <head>
         <script src="./script/jquery-2.1.4.min.js"></script>
+        <script src="./script/custom.js"></script>
+        <script src="./plugins/bootstrap.js"></script>
         <link rel="stylesheet" type="text/css" href="style/header.css">
         <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
     </head>
