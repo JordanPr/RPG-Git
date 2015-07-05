@@ -4,9 +4,10 @@
     include("db_config.php");
     
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn)); 
+    $conn->set_charset('utf8');
     
     //vérification si un des champs est vide
-    if(isset($_POST['force']) && isset($_POST['agilite']) && isset($_POST['chance']) && isset($_SESSION['pseudo']) && isset($_POST['point']) && isset($_POST['sexe'])){
+    if(!empty($_POST['force']) && !empty($_POST['agilite']) && !empty($_POST['chance']) && !empty($_SESSION['pseudo']) && !empty($_POST['point']) && !empty($_POST['sexe'])){
         
         $pseudo     = mysqli_real_escape_string($conn, $_SESSION['pseudo']);
         $force      = intval($_POST['force']);

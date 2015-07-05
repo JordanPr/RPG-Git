@@ -4,6 +4,7 @@ session_start();
     include("db_config.php");
     
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn)); 
+    $conn->set_charset('utf8');
     
     //vérification si un des champs est vide
     if(strlen($_POST['pseudo']) > 0 && strlen($_POST['mdp']) > 0 && strlen($_POST['mdpverif']) > 0 && strlen($_POST['email']) >0 ){

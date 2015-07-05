@@ -29,7 +29,8 @@
                 //test pour savoir si il a deja créer un personnage à faire
             } else {
                 $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn)); 
-            
+                $conn->set_charset('utf8');
+                
                 $pseudo = $_SESSION['pseudo'];
                 
                 $SQL    = "SELECT pseudo FROM rpg_hero WHERE pseudo='$pseudo'" or die("Error in the consult.." . mysqli_error($conn));

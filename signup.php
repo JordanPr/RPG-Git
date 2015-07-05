@@ -4,8 +4,10 @@
     include("db_config.php");
     
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn)); 
+    $conn->set_charset('utf8');
+   
     
-    //vŽrification si un des champs est vide
+    //vÃ©rification si un des champs est vide
     if(strlen($_POST['pseudo']) > 0 && strlen($_POST['mdp']) > 0 ){
         
         $pseudo = mysqli_real_escape_string($conn, $_POST['pseudo']);
