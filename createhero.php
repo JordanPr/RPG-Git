@@ -36,7 +36,7 @@
             $result =  mysqli_query($conn, $SQL);
             $row    = mysqli_fetch_array($result);
             
-            if($row > 1){
+            if($row > 0){
                 header('Location: profil.php');
                 exit;
             }else{
@@ -50,7 +50,5 @@
         header('Location: create-hero.php?error=4');
         exit;
     }
-    
-    
     
 ?>
