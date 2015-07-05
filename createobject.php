@@ -7,7 +7,7 @@
     $conn->set_charset('utf8');
     
     //vérification si un des champs est vide
-    if (strlen($_POST['name']) > 0 && strlen($_POST['description']) > 0 && !empty($_POST['ratio']) && strlen($_POST['type']) > 0){
+    if (strlen($_POST['name']) > 0 && strlen($_POST['description']) > 0 && isset($_POST['ratio']) && strlen($_POST['type']) > 0){
         $name       = mysqli_real_escape_string($conn, $_POST['name']);
         $desc       = mysqli_real_escape_string($conn, $_POST['description']);
         $ratio      = floatval($_POST['ratio']);
@@ -25,7 +25,7 @@
         
         if ($type == "tool"){
             
-            if(!empty($_POST['cc']) && !empty($_POST['damage'])){
+            if(isset($_POST['cc']) && !empty($_POST['damage'])){
                 $cc         = floatval($_POST['cc']);
                 $damage     = intval($_POST['damage']);
                 $defense    = intval($_POST['defense']);

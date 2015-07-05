@@ -7,7 +7,7 @@
     $conn->set_charset('utf8');
     
     //vérification si un des champs est vide
-    if(!empty($_POST['force']) && !empty($_POST['agilite']) && !empty($_POST['chance']) && !empty($_SESSION['pseudo']) && !empty($_POST['point']) && !empty($_POST['sexe'])){
+    if(isset($_POST['force']) && isset($_POST['agilite']) && isset($_POST['chance']) && isset($_SESSION['pseudo']) && isset($_POST['point']) && isset($_POST['sexe'])){
         
         $pseudo     = mysqli_real_escape_string($conn, $_SESSION['pseudo']);
         $force      = intval($_POST['force']);
