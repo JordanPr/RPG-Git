@@ -13,11 +13,13 @@
         $pseudo = mysqli_real_escape_string($conn, $_POST['pseudo']);
         $mdp    = mysqli_real_escape_string($conn, $_POST['mdp']);
         
+        
         $SQL    = "SELECT * FROM rpg_user WHERE pseudo='$pseudo' && mdp='$mdp'" or die("Error in the consult.." . mysqli_error($conn));
         $result = mysqli_query($conn, $SQL);
         $row    = mysqli_fetch_array($result);
         
         if($row > 0){
+            
             $_SESSION['auth'] = $row['type'];
             $_SESSION['pseudo'] = $pseudo;
             
