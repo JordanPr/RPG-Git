@@ -7,7 +7,7 @@
     $timerEnergy = 1;
     $timerGold   = 1;
     
-    $energyMax   = 1000;
+    $energyMax   = 100;
     
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn));
     $conn->set_charset('utf8');

@@ -13,13 +13,14 @@
     ?>
     <script>
     $(function() {
-       setInterval(update,5000);
+       
+       update();
        
        function update(){
             $.get( "timing.php",function() {
             }).done(function() {
-                //$("#hud").load("header.php");
-                
+                $("#hud").load('header.php #hud');
+                setTimeout(update,5000);
             });
        }
     });
@@ -87,8 +88,8 @@
                         <div id='energy'>Energie :</div>
                         <div id="energyBar">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #0101DF;">
-                                   100%
+                                <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo($row['energy'])?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo($row['energy'])?>%; background-color: #0101DF;">
+                                   <?php echo($row['energy']) ?>%
                                 </div>
                             </div>
                         </div>
