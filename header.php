@@ -13,12 +13,13 @@
     ?>
     <script>
     $(function() {
-        setInterval(update,5000);
+        setTimeout(update,1000);
        
        function update(){
             $.get( "timing.php",function() {
             }).done(function() {
-                $(".hud").load("header.php")
+                $(".hud").load("header.php");
+                setTimeout(update,5000);
             });
        }
     });
