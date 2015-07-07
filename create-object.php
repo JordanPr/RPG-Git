@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style/inscription.css">
+        <link rel="stylesheet" type="text/css" href="style/create-object.css">
         <link rel="stylesheet" type="text/css" href="style/style.css">
         <link rel="stylesheet" type="text/css" href="style/header.css">
         <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
@@ -13,7 +13,7 @@
             {
             ?>
                 <form method="post" action="createobject.php" id="createobject" onsubmit="return confirm('Etes vous sur de vouloir créer cette objet ?')">
-                        <div id="registerZone">
+                        <div id="createObjectZone">
                             <input type="text" name="name" placeholder="Nom" class="textBox" charset=utf-8 >
                             <textarea name="description" form="createobject" placeholder="Description" class="textBox" charset=utf-8 ></textarea>
                              

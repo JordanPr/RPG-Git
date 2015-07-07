@@ -1,0 +1,48 @@
+/**
+ * Css de la page create object
+ */
+
+#createObjectZone {
+    margin: 250 auto;
+    height: 230px;
+    width: 300px;
+}
+
+#textBoxLogin {
+	background: #F1F1F1 url(../img/login/iconUser.png) no-repeat;
+	background-position: 8px 9px !important;
+}
+
+#textBoxLogin:focus {
+	background: #FFF url(../img/login/iconUser.png) no-repeat;
+}
+
+#textBoxPassword {
+	background: #F1F1F1 url(../img/login/iconPassword.png) no-repeat;
+	background-position: 8px 9px !important;
+}
+
+#textBoxPassword:focus {
+	background: #FFF url(../img/login/iconPassword.png) no-repeat;
+}
+
+#textBoxMail {
+	background: #F1F1F1 url(../img/login/iconMail.png) no-repeat;
+	background-position: 8px 9px !important;
+}
+
+#textBoxMail:focus {
+	background: #FFF url(../img/login/iconMail.png) no-repeat;
+}
+
+#description {
+	display: none;
+	color: red;
+	margin-top: 10px;
+    position:absolute;
+    border:1px solid #000;
+    font-size: 1em;
+    width:310px;
+    height:22px;
+    text-align: center;
+}
