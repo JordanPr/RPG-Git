@@ -46,7 +46,12 @@
 	margin-left: 40px;
 }
 
-#createHeroZone {
+#btnCreateHero {
+	display: none;
 	margin-left: -2%;
 	width: 200px;
+}
+
+#gold {
+	padding-top: 8px;
 }

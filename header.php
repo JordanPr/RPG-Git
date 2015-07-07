@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div id="createHeroZone">
+        <div id="btnCreateHero">
             <form method="post" action="create-hero.php"></br>
                 <input type="submit" value="Création" class="btn">
             </form>
@@ -68,21 +68,15 @@
             if ($row > 1){
             ?>
                 <script>
-                    $("#createHeroZone").hide();
-                    $("#hud").fadeIn(1000);
+                    $("#btnCreateHero").hide();
+                    $("#hud").show();
                 </script>
 
                 <ul class="nav navbar-nav">
 
                     <li class="hudElement">
-                        <div id='gold'>Or : </div>
-                        <div id="goldBar">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo($row['gold'])?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo($row['gold'])?>%; background-color: #F7D358;">
-                                    <?php echo($row['gold'])?>%
-                                </div>
-                            </div>
-                        </div>
+                        <div id='gold'>Or : <?php echo($row['gold'])?> gold</div>
+                        </br >
                     </li>
 
                     </br >
@@ -109,7 +103,7 @@
 
                 <ul class="nav navbar-nav">
                     <li class="hudElement">
-                        <div id='pdv'>Points de vie : </div>
+                        <div id='pdv'>Vie : </div>
                         <div id="hpBar">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo($row['pdv'])?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo($row['pdv'])?>%; background-color: #FA5858;">
@@ -144,7 +138,7 @@
             }else{
                 ?>
                     <script>
-                        $("#createHeroZone").show();
+                        $("#btnCreateHero").show();
                         $("#hud").hide();
                     </script>
                 <?php
