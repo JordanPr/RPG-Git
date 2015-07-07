@@ -11,7 +11,19 @@
     <?php
         if(isset($_SESSION['pseudo'])){
     ?>
-
+    <script>
+    $(function() {
+        setInterval(update,5000);
+       
+       function update(){
+            $.get( "timing.php",function() {
+            }).done(function() {
+                $(".hud").load("header.php")
+            });
+       }
+    });
+    </script>
+    
     <div class="navbar navbar-inverse navbar-fixed-top" >
         <div class="container">
             <div class="navbar-header">
@@ -127,7 +139,7 @@
                     <?php
                     }
                     ?>
-                    </ul>                
+                </ul>
             <?php
             }else{
                 ?>

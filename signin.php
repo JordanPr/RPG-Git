@@ -35,9 +35,10 @@ session_start();
         $SQL    = "SELECT pseudo,email FROM rpg_user WHERE pseudo='$pseudo' || email='$email'" or die("Error in the consult.." . mysqli_error($conn));
         $result = mysqli_query($conn, $SQL);
         $row    = mysqli_fetch_array($result);
+        $time   = time();
         
         if($row < 1){
-            $SQL2    = "INSERT INTO rpg_user(pseudo,mdp,email) VALUES ('$pseudo','$mdp1','$email')" or die("Error in the consult.." . mysqli_error($conn));
+            $SQL2    = "INSERT INTO rpg_user(pseudo,mdp,email,timer) VALUES ('$pseudo','$mdp1','$email','$time')" or die("Error in the consult.." . mysqli_error($conn));
             $result2 = mysqli_query($conn, $SQL2);
            
             $result = mysqli_query($conn, $SQL);
