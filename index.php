@@ -7,6 +7,10 @@
         <script src="./script/jquery-2.1.4.min.js"></script>
         <script src="./script/custom.js"></script>
         <script src="./plugins/bootstrap.js"></script>
+        <meta name="description" content="Petit rpg pozay ak lé poto fraire jte baiz">
+        <meta name="author" content="Jordan PEREIRA-RAMOS & Rémy PENET">
+        <link rel="icon" href="img/favicon.ico">
+        <title>LeJeuKiPaize</title>
     </head>
         <body>
             <?php include(dirname(__FILE__)."/header.php");?>

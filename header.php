@@ -38,6 +38,13 @@
                 </ul>
             </div>
         </div>
+
+        <div id="createHeroZone">
+            <form method="post" action="create-hero.php"></br>
+                <input type="submit" value="Création" class="btn">
+            </form>
+        </div>
+
         <div id="hud">
         <?php
             $pseudo = $_SESSION['pseudo'];
@@ -48,6 +55,11 @@
             
             if ($row > 1){
             ?>
+                <script>
+                    $("#createHeroZone").hide();
+                    $("#hud").fadeIn(1000);
+                </script>
+
                 <ul class="nav navbar-nav">
 
                     <li class="hudElement">
@@ -118,7 +130,12 @@
                     </ul>                
             <?php
             }else{
-                ?><a href="create-hero.php">CREER UN HERO</a><?php
+                ?>
+                    <script>
+                        $("#createHeroZone").show();
+                        $("#hud").hide();
+                    </script>
+                <?php
             }
             
             ?>

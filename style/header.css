@@ -45,3 +45,8 @@
 .hudElement {
 	margin-left: 40px;
 }
+
+#createHeroZone {
+	margin-left: -2%;
+	width: 200px;
+}
