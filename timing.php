@@ -12,7 +12,7 @@
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn));
     $conn->set_charset('utf8');
     
-    $UPDATE    = "SELECT energy,timer FROM rpg_hero INNER JOIN rpg_user WHERE (rpg_user.pseudo and rpg_hero.pseudo) = '$pseudo'" or die("Error in the consult.." . mysqli_error($conn));
+    $UPDATE    = "SELECT energy,timer FROM rpg_hero INNER JOIN rpg_user WHERE rpg_user.pseudo = '$pseudo' and rpg_hero.pseudo = '$pseudo'" or die("Error in the consult.." . mysqli_error($conn));
     $result1   = mysqli_query($conn, $UPDATE);
     $row1      = mysqli_fetch_array($result1);
     
@@ -22,6 +22,8 @@
     if ($row1 > 0){
         
         $count = time() - $row1['timer'];
+        
+        echo($row1['energy']."    ".time());
         
         // Cette fonction est tres lourde si le joueur ne s'est pas connécté depuis un long moment
         // il faudrait trouver un moyen de créer un chargement
@@ -38,31 +40,26 @@
                 if($d1 != null && $countEnergy >= $d2)return;
                 
                 $result2 = mysqli_query($c2, $c1);
-                
-                if($result2){
-                    //echo("yep");
-                    if($d1 != null){
-                        
-                        $countEnergy += 1;
-                    }
+                //echo("yep");
+                if($d1 != null){
                     
-                    $countSave -= $a;
-                }else{
-                    //echo("nop");
+                    $countEnergy += 1;
                 }
+                
+                $countSave -= $a;
             }
-            echo('finish while');
         }
         
-        //update($timerEnergy,$UPDATE2,$conn,$row1['energy'],$energyMax);
+        update($timerEnergy,$UPDATE2,$conn,$row1['energy'],$energyMax);
         
         update($timerGold,$UPDATE3,$conn);
         
-        $timeNow = time();
-        $UPDATE4    = "UPDATE rpg_user SET timer = '$timeNow'  WHERE pseudo = '$pseudo'";
-        $result4 = mysqli_query($conn, $UPDATE4);
         
-        echo($count);
+        $timeNow = time();
+        
+        $UPDATE4    = "UPDATE rpg_user SET timer = '$timeNow' WHERE pseudo = '$pseudo'";
+        $result4    = mysqli_query($conn, $UPDATE4);
+        
     }
     
 
