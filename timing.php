@@ -1,58 +1,64 @@
 <?php
     session_start();
     include("db_config.php");
-    
-    $pseudo = $_SESSION['pseudo'];
-    
+        
     $timerEnergy = 1;
     $timerGold   = 1;
+    
+    $val;
     
     $energyMax   = 100;
     
     $conn = mysqli_connect("$DB_host","$DB_login","$DB_pass","$DB_name") or die("Error " . mysqli_error($conn));
     $conn->set_charset('utf8');
     
+    $pseudo = mysqli_real_escape_string($conn, $_SESSION['pseudo']);
+
     $UPDATE    = "SELECT energy,timer FROM rpg_hero INNER JOIN rpg_user WHERE rpg_user.pseudo = '$pseudo' and rpg_hero.pseudo = '$pseudo'" or die("Error in the consult.." . mysqli_error($conn));
     $result1   = mysqli_query($conn, $UPDATE);
     $row1      = mysqli_fetch_array($result1);
     
-    $UPDATE2    = "UPDATE rpg_hero SET energy = energy + 1  WHERE pseudo = '$pseudo'";
-    $UPDATE3    = "UPDATE rpg_hero SET gold = gold + 1  WHERE pseudo = '$pseudo'";
+    $UPDATE2    = "UPDATE rpg_hero SET energy = energy + '$val' WHERE pseudo = '$pseudo'";
+    $UPDATE3    = "UPDATE rpg_hero SET gold = gold + '$val' WHERE pseudo = '$pseudo'";
     
     if ($row1 > 0){
         
-        $count = time() - $row1['timer'];
-        
-        echo($row1['energy']."    ".time());
+        $count = (time() / 60) - $row1['timer'];
         
         // Cette fonction est tres lourde si le joueur ne s'est pas connécté depuis un long moment
         // il faudrait trouver un moyen de créer un chargement
         
-        function update($a,$c1,$c2,$d1 = null, $d2 = null ){
+        function update($a,$b,$c1,$c2,$d1 = null, $d2 = null ){
             global $count;
+            global $val;
             
+            $val = $b;
             $countSave = $count;
             
-           if($d1 != null)$countEnergy = $d1;
+           if($d1 != null)$countSup = $d1;
            
             while($countSave > $a){
                 
-                if($d1 != null && $countEnergy >= $d2)return;
+                if($d1 != null && $countSup >= $d2){
+                    $pVal = $val - $d2;
+                    $val = $pVal;
+                    return;
+                }
                 
                 $result2 = mysqli_query($c2, $c1);
-                //echo("yep");
+                
                 if($d1 != null){
                     
-                    $countEnergy += 1;
+                    $countSup += 1;
                 }
                 
                 $countSave -= $a;
             }
         }
         
-        update($timerEnergy,$UPDATE2,$conn,$row1['energy'],$energyMax);
+        update($timerEnergy,5,$UPDATE2,$conn,$row1['energy'],$energyMax);
         
-        update($timerGold,$UPDATE3,$conn);
+        update($timerGold,1,$UPDATE3,$conn);
         
         
         $timeNow = time();
