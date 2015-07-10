@@ -20,7 +20,7 @@
             $.get( "timing.php",function() {
             }).done(function() {
                 $("#hud").load('header.php #hud');
-                setTimeout(update,60000);
+                setTimeout(update,4000);
             });
        }
     });
