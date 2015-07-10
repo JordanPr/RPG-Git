@@ -2,8 +2,8 @@
     session_start();
     include("db_config.php");
     
-    $timerEnergy = 1;
-    $timerGold   = 1;
+    $timerEnergy = 30;
+    $timerGold   = 60;
     
     $energyMax   = 100;
     
