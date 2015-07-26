@@ -21,9 +21,8 @@
     if ($row1 > 0){
         
         $count = time() - $row1['timer'];
-        
-        echo($row1['energy']."    ".time());
-        
+        $timeNow = time();
+
         // Cette fonction est tres lourde si le joueur ne s'est pas connécté depuis un long moment
         // il faudrait trouver un moyen de créer un chargement
         
@@ -32,29 +31,28 @@
             
             $countSave = $count;
             
-           if($d1 != null)$countEnergy = $d1;
+           if($d1 != null)$counSup = $d1;
            
             while($countSave > $a){
                 
-                if($d1 != null && $countEnergy >= $d2)return;
+                if($d1 != null && $counSup >= $d2)return;
                 
                 $result2 = mysqli_query($c2, $c1);
-                //echo("yep");
+                
                 if($d1 != null){
                     
-                    $countEnergy += 1;
+                    $counSup += 1;
                 }
                 
                 $countSave -= $a;
             }
+            
         }
         
         update($timerEnergy,$UPDATE2,$conn,$row1['energy'],$energyMax);
         
         update($timerGold,$UPDATE3,$conn);
         
-        
-        $timeNow = time();
         
         $UPDATE4    = "UPDATE rpg_user SET timer = '$timeNow' WHERE pseudo = '$pseudo'";
         $result4    = mysqli_query($conn, $UPDATE4);

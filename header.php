@@ -127,14 +127,6 @@
                             </div>
                         </div>
                     </li>
-
-                    <?php
-                        if(isset($_SESSION['auth']) && $_SESSION['auth'] == 2 ){
-                    ?>
-                    <li><a href="#">Panel</a></li>
-                    <?php
-                    }
-                    ?>
                 </ul>
             <?php
             }else{

@@ -17,7 +17,7 @@
                 if(isset($_SESSION['pseudo'])) {
             ?>
             <div id="profilZone">
-                <div id="description">Bonjour <?php echo($_SESSION['pseudo'])?></div>
+                <div id="description">Bientot Disponible</div>
             </div>
             <script>
                 $("#description").fadeIn(1000);

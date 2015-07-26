@@ -36,9 +36,9 @@
 }
 
 #description {
-    display: none;
-    color: red;
-    margin-top: 10px;
+	display: none;
+	color: red;
+	margin-top: 10px;
     position:absolute;
     border:1px solid #000;
     font-size: 1em;
